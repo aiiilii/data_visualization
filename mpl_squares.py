@@ -5,6 +5,13 @@ input_values = [1, 2, 3, 4, 5]
 # y-axis
 squares = [1, 4, 9, 16, 25]
 
+# >>> import matplotlib.pyplot as plt
+# >>> plt.style.available
+# ['Solarize_Light2', '_classic_test_patch', 'bmh', 'classic', 'dark_background', 'fast', 'fivethirtyeight', 
+# 'ggplot', 'grayscale', 'seaborn', 'seaborn-bright', 'seaborn-colorblind', 'seaborn-dark', 'seaborn-dark-palette', '
+# seaborn-darkgrid', 'seaborn-deep', 'seaborn-muted', 'seaborn-notebook', 'seaborn-paper', 'seaborn-pastel', 'seaborn-poster', 
+# 'seaborn-talk', 'seaborn-ticks', 'seaborn-white', 'seaborn-whitegrid', 'tableau-colorblind10']
+plt.style.use('seaborn')
 fig, ax = plt.subplots()
 ax.plot(input_values, squares, linewidth=3)
 
