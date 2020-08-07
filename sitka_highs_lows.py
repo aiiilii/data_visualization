@@ -9,23 +9,26 @@ with open(filename) as f:
     header_row = next(reader)
     #print(header_row)
 
-    # Get high temperatures and dates from this file.
-    dates, highs = [], []
+    # Get dates, low and high temperatures from this file.
+    dates, highs, lows = [], [], []
     for row in reader:
         current_date = datetime.strptime(row[2], '%Y-%m-%d')
         high = int(row[5])
+        low = int(row[6])
         dates.append(current_date)
         highs.append(high)
+        lows.append(low)
     
 #print(highs)
 
-# Plot the high temperatures.
+# Plot the high and low temperatures on the same chart.
 plt.style.use('seaborn')
 fig, ax = plt.subplots()
 ax.plot(dates, highs, c='red')
+ax.plot(dates, lows, c='blue')
 
 # Format plot.
-plt.title("Daily high temperatures - 2018", fontsize=24)
+plt.title("Daily high and low temperatures - 2018", fontsize=24)
 plt.xlabel('', fontsize=16)
 # autofmt_xdate() draws the date labels diagonally to prevent overlapping.
 fig.autofmt_xdate()
